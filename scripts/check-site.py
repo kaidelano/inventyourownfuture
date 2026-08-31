@@ -66,16 +66,18 @@ def main() -> int:
 
     for path in site_files():
         text = path.read_text(encoding="utf-8", errors="ignore")
-        for match in ATTR_RE.finditer(text):
-            attr, value = match.groups()
-            if attr.lower() == "srcset":
-                for candidate in value.split(","):
-                    url = candidate.strip().split(" ")[0] if candidate.strip() else ""
-                    check_local(url, path, missing)
-            else:
-                check_local(value, path, missing)
-        for match in CSS_URL_RE.finditer(text):
-            check_local(match.group(2), path, missing)
+        if path.suffix.lower() == ".html":
+            for match in ATTR_RE.finditer(text):
+                attr, value = match.groups()
+                if attr.lower() == "srcset":
+                    for candidate in value.split(","):
+                        url = candidate.strip().split(" ")[0] if candidate.strip() else ""
+                        check_local(url, path, missing)
+                else:
+                    check_local(value, path, missing)
+        if path.suffix.lower() == ".css":
+            for match in CSS_URL_RE.finditer(text):
+                check_local(match.group(2), path, missing)
         for url in EXTERNAL_RE.findall(text):
             parsed = urlparse(("https:" + url) if url.startswith("//") else url)
             if parsed.netloc and parsed.netloc not in {"www.w3.org", "schema.org"}:
