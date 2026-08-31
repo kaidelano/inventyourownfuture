@@ -29,11 +29,18 @@ class InitiativesPageTests(unittest.TestCase):
             with self.subTest(page=page.relative_to(ROOT)):
                 text = page.read_text(encoding="utf-8")
                 href = "pages/initiatives.html" if page == ROOT / "index.html" else "initiatives.html"
-                direct_links = re.findall(
-                    rf'<a href="{re.escape(href)}"[^>]*data-animation-role="header-element"[^>]*>\s*Initiatives\s*</a>',
-                    text,
-                    flags=re.S,
-                )
+                if page == ROOT / "index.html":
+                    direct_links = re.findall(
+                        rf'<a href="{re.escape(href)}"[^>]*>\s*Initiatives\s*</a>',
+                        text,
+                        flags=re.S,
+                    )
+                else:
+                    direct_links = re.findall(
+                        rf'<a href="{re.escape(href)}"[^>]*data-animation-role="header-element"[^>]*>\s*Initiatives\s*</a>',
+                        text,
+                        flags=re.S,
+                    )
                 self.assertGreaterEqual(len(direct_links), 1)
                 self.assertNotIn('aria-controls="initiatives"', text)
                 self.assertNotIn('data-folder-id="/initiatives"', text)
