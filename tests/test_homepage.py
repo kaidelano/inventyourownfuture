@@ -68,7 +68,7 @@ class ProductionHomepageTests(unittest.TestCase):
             self.assertIn(section_id, parser.ids)
 
         for href in (
-            "pages/initiatives.html",
+            "#initiatives",
             "pages/upcoming.html",
             "pages/student-ambassador.html",
             "pages/events-and-camps.html",

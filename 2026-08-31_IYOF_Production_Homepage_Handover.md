@@ -132,9 +132,12 @@ The four homepage initiative cards point to their real pages:
 3. **Internship Opportunities** → `pages/internship-opportunities.html`
 4. **Alumni Network** → `pages/alumni-network.html`
 
-The central Initiatives navigation links to:
+The standalone Initiatives landing page has been removed because the production homepage already provides the useful four-card overview. Initiative navigation now goes directly to the homepage section:
 
-- `pages/initiatives.html`
+- from the homepage: `#initiatives`
+- from secondary pages: `../index.html#initiatives`
+
+Each of the four cards then links to its real programme page, avoiding a redundant intermediate page.
 
 Other important homepage destinations include:
 

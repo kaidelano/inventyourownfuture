@@ -8,27 +8,30 @@ ROOT = Path(__file__).resolve().parents[1]
 HTML_FILES = [ROOT / "index.html", *sorted((ROOT / "pages").glob("*.html"))]
 
 
-class InitiativesPageTests(unittest.TestCase):
-    def test_initiatives_page_exists_and_lists_all_four_programmes(self):
-        page = ROOT / "pages" / "initiatives.html"
-        self.assertTrue(page.exists(), "pages/initiatives.html should exist")
-        text = page.read_text(encoding="utf-8")
+class InitiativesSectionTests(unittest.TestCase):
+    def test_homepage_initiatives_section_lists_all_four_programmes(self):
+        text = (ROOT / "index.html").read_text(encoding="utf-8")
         expected = {
-            "student-ambassador.html": "Student Ambassador",
-            "events-and-camps.html": "Events and Camps",
-            "internship-opportunities.html": "Internship Opportunities",
-            "alumni-network.html": "Alumni Network",
+            "pages/student-ambassador.html": "Student Ambassador",
+            "pages/events-and-camps.html": "Events and Camps",
+            "pages/internship-opportunities.html": "Internship Opportunities",
+            "pages/alumni-network.html": "Alumni Network",
         }
         for href, label in expected.items():
             self.assertIn(f'href="{href}"', text)
             self.assertIn(label, text)
-        self.assertEqual(4, len(re.findall(r'class="initiative-card\b', text)))
+        self.assertEqual(
+            4,
+            len(re.findall(r'class="initiative (?:teal|yellow|purple|pink)"', text)),
+        )
 
-    def test_every_page_uses_a_direct_initiatives_navigation_link(self):
+    def test_standalone_initiatives_page_is_removed_and_navigation_targets_homepage_section(self):
+        self.assertFalse((ROOT / "pages" / "initiatives.html").exists())
         for page in HTML_FILES:
             with self.subTest(page=page.relative_to(ROOT)):
                 text = page.read_text(encoding="utf-8")
-                href = "pages/initiatives.html" if page == ROOT / "index.html" else "initiatives.html"
+                self.assertNotIn("initiatives.html", text)
+                href = "#initiatives" if page == ROOT / "index.html" else "../index.html#initiatives"
                 if page == ROOT / "index.html":
                     direct_links = re.findall(
                         rf'<a href="{re.escape(href)}"[^>]*>\s*Initiatives\s*</a>',
@@ -46,13 +49,13 @@ class InitiativesPageTests(unittest.TestCase):
                 self.assertNotIn('data-folder-id="/initiatives"', text)
                 self.assertNotIn('data-folder="/initiatives"', text)
 
-    def test_initiatives_page_uses_brand_colour_accents_and_responsive_grid(self):
-        page = (ROOT / "pages" / "initiatives.html").read_text(encoding="utf-8")
+    def test_homepage_initiatives_section_uses_brand_colour_accents_and_responsive_grid(self):
+        page = (ROOT / "index.html").read_text(encoding="utf-8")
         for accent in ("yellow", "teal", "pink", "purple"):
-            self.assertIn(f"initiative-card--{accent}", page)
-        css = (ROOT / "assets" / "css" / "static-site.css").read_text(encoding="utf-8")
-        self.assertIn(".initiatives-grid", css)
-        self.assertRegex(css, r"@media\s*\(max-width:\s*700px\)")
+            self.assertIn(f'class="initiative {accent}"', page)
+        css = (ROOT / "assets" / "css" / "homepage.css").read_text(encoding="utf-8")
+        self.assertIn(".initiatives{display:grid", css)
+        self.assertRegex(css, r"@media\s*\(max-width:\s*650px\)")
 
     def test_site_validator_passes_with_javascript_source_files_present(self):
         result = subprocess.run(
