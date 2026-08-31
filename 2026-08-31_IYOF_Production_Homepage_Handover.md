@@ -146,6 +146,11 @@ The top-level **Our impact** link follows the same direct-section pattern:
 
 This lets visitors inspect the impact summary first and deliberately continue to the full past-events page.
 
+The hero **View upcoming opportunities** CTA follows the same preview-first pattern:
+
+- hero CTA: `#opportunities`
+- Opportunity previe...[truncated]
+
 Other important homepage destinations include:
 
 - About Us: `pages/about-us.html`

@@ -113,6 +113,27 @@ class ProductionHomepageTests(unittest.TestCase):
         )
         self.assertIn(".story-link", stylesheet)
 
+    def test_upcoming_cta_routes_through_preview_before_full_opportunities_page(self):
+        text = (ROOT / "index.html").read_text(encoding="utf-8")
+        self.assertIn(
+            '<a class="button light" href="#opportunities">View upcoming opportunities</a>',
+            text,
+        )
+
+        preview = text[
+            text.index('<section class="section opportunities" id="opportunities">') :
+        ]
+        self.assertIn(
+            '<a class="opportunity-more" href="pages/upcoming.html">View all opportunities →</a>',
+            preview,
+        )
+
+        stylesheet = (ROOT / "assets" / "css" / "homepage.css").read_text(
+            encoding="utf-8"
+        )
+        self.assertIn(".opportunity-footer", stylesheet)
+        self.assertIn(".opportunity-more", stylesheet)
+
 
 if __name__ == "__main__":
     unittest.main()
