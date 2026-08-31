@@ -139,6 +139,13 @@ The standalone Initiatives landing page has been removed because the production 
 
 Each of the four cards then links to its real programme page, avoiding a redundant intermediate page.
 
+The top-level **Our impact** link follows the same direct-section pattern:
+
+- homepage navigation: `#impact`
+- first Fintech impact story CTA: `pages/events-and-camps.html` with the label `View past events →`
+
+This lets visitors inspect the impact summary first and deliberately continue to the full past-events page.
+
 Other important homepage destinations include:
 
 - About Us: `pages/about-us.html`

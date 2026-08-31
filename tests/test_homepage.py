@@ -1,5 +1,6 @@
 from html.parser import HTMLParser
 from pathlib import Path
+import re
 import unittest
 
 
@@ -91,6 +92,26 @@ class ProductionHomepageTests(unittest.TestCase):
         self.assertIn(".hero-message .eyebrow", stylesheet)
         self.assertIn("color: var(--ink)", stylesheet)
         self.assertIn("box-shadow: 0 0 0 6px var(--ink)", stylesheet)
+
+    def test_impact_navigation_and_past_events_cta_target_the_right_places(self):
+        text = (ROOT / "index.html").read_text(encoding="utf-8")
+        self.assertRegex(text, r'<a href="#impact">\s*Our impact\s*</a>')
+
+        impact = text[text.index('<section class="action" id="impact">') :]
+        first_story = re.search(
+            r'<article class="story">(.*?)</article>', impact, flags=re.S
+        )
+        if first_story is None:
+            self.fail("The impact section should include at least one story card")
+        first_story_html = first_story.group(1)
+        self.assertIn('href="pages/events-and-camps.html"', first_story_html)
+        self.assertIn('class="story-link"', first_story_html)
+        self.assertIn("View past events", first_story_html)
+
+        stylesheet = (ROOT / "assets" / "css" / "homepage.css").read_text(
+            encoding="utf-8"
+        )
+        self.assertIn(".story-link", stylesheet)
 
 
 if __name__ == "__main__":

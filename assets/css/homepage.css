@@ -64,6 +64,8 @@ a{color:inherit}
 .story-text{position:absolute;left:24px;right:24px;bottom:24px;color:#fff;z-index:2}
 .story-text small{font-size:10px;font-weight:800;letter-spacing:.12em}
 .story-text h3{font-size:26px;line-height:1.15;margin:9px 0}
+.story-link{display:inline-flex;margin-top:8px;padding:10px 14px;border-radius:999px;background:#fff;color:var(--ink);font-size:12px;font-weight:800;text-decoration:none}
+.story-link:hover{background:var(--yellow)}
 .opportunities{background:#fff}
 .opportunity-heading{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:30px}
 .opportunity-heading h2{font-size:clamp(38px,4.5vw,64px);letter-spacing:-.05em;margin:7px 0}
