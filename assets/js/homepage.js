@@ -10,9 +10,7 @@
       track.classList.remove('ready');
       track.querySelectorAll('.logo-sequence[aria-hidden="true"]').forEach((sequence) => sequence.remove());
       source.querySelectorAll('.marquee-filler').forEach((item) => item.remove());
-
-      const reduceMotion = reducedMotionQuery.matches;
-      if (reduceMotion) {
+      if (reducedMotionQuery.matches) {
         track.style.removeProperty('--marquee-start');
         track.classList.add('ready');
         return;
@@ -39,6 +37,51 @@
     });
   };
 
+  const initAdvisorCarousel = () => {
+    document.querySelectorAll('[data-advisor-carousel]').forEach((carousel) => {
+      const track = carousel.querySelector('#advisor-track');
+      const cards = [...carousel.querySelectorAll('.advisor-card')];
+      const previousButton = carousel.querySelector('[data-advisor-direction="previous"]');
+      const nextButton = carousel.querySelector('[data-advisor-direction="next"]');
+      const currentLabel = carousel.querySelector('[data-advisor-current]');
+      const totalLabel = carousel.querySelector('[data-advisor-total]');
+      if (!track || !cards.length || !previousButton || !nextButton) return;
+
+      let activeIndex = 0;
+      const showAdvisor = (nextIndex) => {
+        activeIndex = (nextIndex + cards.length) % cards.length;
+        const previousIndex = (activeIndex - 1 + cards.length) % cards.length;
+        const nextCardIndex = (activeIndex + 1) % cards.length;
+        cards.forEach((card, cardIndex) => {
+          const active = cardIndex === activeIndex;
+          const previous = cardIndex === previousIndex;
+          const next = cardIndex === nextCardIndex;
+          const preview = previous || next;
+          card.inert = !active;
+          card.classList.toggle('is-active', active);
+          card.classList.toggle('is-previous', previous);
+          card.classList.toggle('is-next', next);
+          card.classList.toggle('is-hidden', !active && !preview);
+          card.setAttribute('aria-hidden', String(!active));
+          if (active) card.setAttribute('aria-current', 'true');
+          else card.removeAttribute('aria-current');
+        });
+        if (currentLabel) currentLabel.textContent = String(activeIndex + 1);
+        if (totalLabel) totalLabel.textContent = String(cards.length);
+        carousel.dataset.advisorIndex = String(activeIndex);
+      };
+
+      previousButton.addEventListener('click', () => showAdvisor(activeIndex - 1));
+      nextButton.addEventListener('click', () => showAdvisor(activeIndex + 1));
+      track.addEventListener('keydown', (event) => {
+        if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+        event.preventDefault();
+        showAdvisor(activeIndex + (event.key === 'ArrowRight' ? 1 : -1));
+      });
+      showAdvisor(0);
+    });
+  };
+
   const navToggle = document.querySelector('.nav-toggle');
   const navigation = document.querySelector('#primary-navigation');
   const setNavigationOpen = (open) => {
@@ -57,7 +100,6 @@
     if (event.key === 'Escape') setNavigationOpen(false);
   });
 
-
   document.querySelectorAll('.filter').forEach((button) => {
     button.setAttribute('aria-pressed', String(button.classList.contains('active')));
     button.addEventListener('click', () => {
@@ -72,6 +114,7 @@
     });
   });
 
+  initAdvisorCarousel();
   initMarquees();
   reducedMotionQuery.addEventListener('change', initMarquees);
   let marqueeResizeTimer;

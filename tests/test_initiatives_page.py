@@ -19,11 +19,14 @@ class InitiativesSectionTests(unittest.TestCase):
         }
         for href, label in expected.items():
             self.assertIn(f'href="{href}"', text)
-            self.assertIn(label, text)
-        self.assertEqual(
-            4,
-            len(re.findall(r'class="initiative (?:teal|yellow|purple|pink)"', text)),
-        )
+            self.assertIn(f">{label}</button>", text)
+        outer_start = text.index('id="initiative-track"')
+        inner_start = text.index('data-iyof-carousel="ambassadors"')
+        events_start = text.index('data-tone="yellow"')
+        initiatives = text[outer_start:inner_start]
+        self.assertEqual(1, len(re.findall(r'data-carousel-slide', initiatives)))
+        self.assertEqual(1, len(re.findall(r'data-tone="teal"', initiatives)))
+        self.assertLess(inner_start, events_start)
 
     def test_standalone_initiatives_page_is_removed_and_navigation_targets_homepage_section(self):
         self.assertFalse((ROOT / "pages" / "initiatives.html").exists())
@@ -49,13 +52,11 @@ class InitiativesSectionTests(unittest.TestCase):
                 self.assertNotIn('data-folder-id="/initiatives"', text)
                 self.assertNotIn('data-folder="/initiatives"', text)
 
-    def test_homepage_initiatives_section_uses_brand_colour_accents_and_responsive_grid(self):
+    def test_homepage_initiatives_section_uses_all_brand_accents(self):
         page = (ROOT / "index.html").read_text(encoding="utf-8")
         for accent in ("yellow", "teal", "pink", "purple"):
-            self.assertIn(f'class="initiative {accent}"', page)
-        css = (ROOT / "assets" / "css" / "homepage.css").read_text(encoding="utf-8")
-        self.assertIn(".initiatives{display:grid", css)
-        self.assertRegex(css, r"@media\s*\(max-width:\s*650px\)")
+            self.assertIn(f'data-tone="{accent}"', page)
+        self.assertIn('data-iyof-carousel="initiatives"', page)
 
     def test_site_validator_passes_with_javascript_source_files_present(self):
         result = subprocess.run(

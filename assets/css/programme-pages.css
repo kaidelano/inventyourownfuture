@@ -1,0 +1,66 @@
+/* About and internship pages: retain content, replace export coordinates. */
+main .page-section{min-height:0!important;padding-top:0!important;padding-bottom:0!important;background:#fffdf8}
+main .sqs-html-content p,main .sqs-html-content h3{color:#19152b!important}
+main .section-divider-display{display:none}
+main .section-background{background:#fffdf8!important}
+main .content-wrapper{max-width:1440px!important;margin:auto;padding:64px 5vw!important}
+main .fluid-engine{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto;gap:28px 48px}
+main .fluid-engine>.fe-block{grid-area:auto!important;position:static!important;min-width:0;align-self:center}
+main .sqs-block{padding:0!important}
+main .sqs-html-content h1,main .sqs-html-content h2{font-weight:800}
+main .sqs-html-content p{font-size:17px;line-height:1.7}
+main .image-block{height:320px!important;min-height:320px!important;border-radius:24px;overflow:hidden}
+main .image-block .sqs-block-content,main .image-block .fluid-image-component-root,main .image-block .fluid-image-animation-wrapper,main .image-block .fluid-image-container{height:100%!important;width:100%!important;position:relative!important}
+main .image-block img{height:100%!important;width:100%!important;object-fit:cover!important}
+main{padding-top:100px}
+main .fluid-engine{grid-template-rows:auto!important;grid-auto-rows:auto!important}
+main .sqs-html-content h1{margin:0;font-size:clamp(40px,5vw,68px)}
+.fe-68fff48b5207e45fe745063f{background:#fdb712;border-radius:28px;padding:40px}
+main .fe-68fff48b5207e45fe745063f>.fe-block:nth-child(1){grid-area:1/1!important}
+main .fe-68fff48b5207e45fe745063f>.fe-block:nth-child(2){grid-area:2/1!important}
+main .fe-68fff48b5207e45fe745063f>.fe-block:nth-child(3){grid-area:1/2!important}
+main .fe-68fff48b5207e45fe745063f>.fe-block:nth-child(4){grid-area:2/2!important}
+main .fe-68fff48b5207e45fe745063f .image-block{height:210px!important;min-height:210px!important}
+main .fe-67cf50428a2006602d127007{border-top:6px solid #62c2ac;padding-top:40px}
+main .fe-67cf50428a2006602d127007>.fe-block:first-child{grid-area:1/1 / span 2!important}
+main .fe-67cf50428a2006602d127007>.fe-block:nth-child(2){grid-area:1/2!important}
+main .fe-67cf50428a2006602d127007>.fe-block:nth-child(3){grid-area:2/2!important}
+.fe-69025d46ae025728f2b4405b{background:#fdb712;border-radius:28px;padding:40px}
+.fe-69025969615b831bb6787125{border-top:6px solid #62c2ac;padding-top:36px}
+main .fe-69025969615b831bb6787125>.fe-block:first-child{grid-column:1/-1!important}
+main .fe-69025969615b831bb6787125>.fe-block:last-child{grid-column:1/-1!important;justify-self:start}
+.fe-69025e671ca294249c27adaa{background:#f6f3f9;border-radius:28px;padding:40px;border-top:6px solid #6457a4}
+main .field-list input,main .field-list textarea,main .field-list select{border-radius:10px!important;max-width:100%}
+/* Shared editorial hero from the homepage visual system. */
+.iyof-page-hero{box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);align-items:end;gap:48px;width:min(90vw,1500px);margin:0 auto 56px;padding:64px clamp(28px,5vw,72px);border-radius:28px;background:#fdb712;color:#19152b}
+.iyof-page-hero .iyof-page-eyebrow{grid-column:1/-1;margin:0;color:#6457a4;font:800 12px/1 Manrope,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase}
+.iyof-page-hero h1{margin:0;max-width:850px;font:800 clamp(48px,6vw,86px)/.98 Manrope,Arial,sans-serif;letter-spacing:-.055em}
+.iyof-page-hero>p:last-child{margin:0;max-width:600px;font:500 18px/1.7 Manrope,Arial,sans-serif}
+
+/* About: remove the empty export spacer and turn legacy blocks into wide editorial panels. */
+.iyof-about-page .page-section:has(.fe-67cf56b1c7ae533bb48a17ab:empty){display:none}
+.iyof-about-page .fe-68fff48b5207e45fe745063f{background:#fff;border-top:7px solid #62c2ac;box-shadow:0 18px 50px #19152b12}
+.iyof-about-page .fe-68fff48b5207e45fe745063f>.fe-block:first-child{display:none}
+.iyof-about-page .fe-67cf50428a2006602d127007{padding:48px;border-radius:28px;background:#f6f3f9;border-top:7px solid #6457a4}
+.iyof-about-page .fe-67cf50428a2006602d127007 h2{font-size:clamp(34px,4vw,58px);letter-spacing:-.045em}
+
+/* Events: replace the exported stacked list with programme cards. */
+.iyof-events-page>.iyof-page-hero{margin-bottom:32px}
+.iyof-events-page .collection-type-events-stacked{background:#fffdf8!important}
+.iyof-events-page .collection-type-events-stacked>.content-wrapper{width:min(90vw,1500px)!important;max-width:none!important;padding:24px 0 88px!important}
+.iyof-events-page .events-list{display:grid;gap:26px}
+.iyof-events-page .eventlist-event{display:grid;grid-template-columns:minmax(250px,32%) 88px minmax(0,1fr);gap:0 26px;margin:0!important;padding:0!important;overflow:hidden;border:1px solid #e7e2ea;border-top:7px solid #62c2ac;border-radius:24px;background:#fff;box-shadow:0 12px 30px #19152b0d}
+.iyof-events-page .eventlist-event:nth-of-type(2n){border-top-color:#6457a4}.iyof-events-page .eventlist-event:nth-of-type(3n){border-top-color:#f0127a}.iyof-events-page .eventlist-event:nth-of-type(4n){border-top-color:#fdb712}
+.iyof-events-page .eventlist-column-thumbnail{grid-row:1;grid-column:1;display:grid!important;place-items:start center;width:100%!important;height:100%!important;min-height:350px;margin:0!important;background:#f6f3f9}
+.iyof-events-page .eventlist-column-thumbnail img{position:static!important;display:block!important;width:100%!important;height:100%!important;max-height:560px;object-fit:contain!important;object-position:center!important}
+.iyof-events-page .eventlist-column-date{grid-row:1;grid-column:2;padding:34px 0}
+.iyof-events-page .eventlist-datetag{width:72px!important;margin:0!important;border-radius:16px;background:#f6f3f9;color:#19152b;text-align:center}
+.iyof-events-page .eventlist-column-info{grid-row:1;grid-column:3;min-width:0;padding:34px 34px 34px 0}
+.iyof-events-page .eventlist-title{margin:0 0 12px;font:800 clamp(28px,3vw,44px)/1.05 Manrope,Arial,sans-serif;letter-spacing:-.045em}
+.iyof-events-page .eventlist-title a{color:#19152b;text-decoration:none}
+.iyof-events-page .eventlist-meta{margin:0 0 18px;color:#6457a4;font:700 12px/1.5 Manrope,Arial,sans-serif}
+.iyof-events-page .eventlist-meta-export{display:none}
+.iyof-events-page .eventlist-description{color:#5f5969;font:500 15px/1.65 Manrope,Arial,sans-serif}
+.iyof-events-page .eventlist-description p{margin:0 0 12px}
+
+@media(max-width:767px){main{padding-top:84px}.iyof-page-hero{grid-template-columns:1fr;width:calc(100% - 40px);margin-bottom:32px;padding:34px 26px;gap:20px}.iyof-page-hero .iyof-page-eyebrow{grid-column:auto}.iyof-page-hero h1{font-size:clamp(42px,13vw,62px)}.iyof-page-hero>p:last-child{font-size:16px}.iyof-about-page .fe-67cf50428a2006602d127007{padding:24px}main .content-wrapper{padding:32px 20px!important}main .fluid-engine{grid-template-columns:minmax(0,1fr);gap:24px;padding:24px}main .fluid-engine>.fe-block:nth-child(n){grid-area:auto!important}main .image-block{min-height:220px}main .sqs-html-content p{font-size:16px}.iyof-events-page .collection-type-events-stacked>.content-wrapper{width:calc(100% - 40px)!important;padding-top:8px!important}.iyof-events-page .eventlist-event{grid-template-columns:82px minmax(0,1fr)}.iyof-events-page .eventlist-column-thumbnail{grid-row:1;grid-column:1/-1;height:240px!important;min-height:240px}.iyof-events-page .eventlist-column-date{grid-row:2;grid-column:1;padding:24px 0 24px 14px}.iyof-events-page .eventlist-column-info{grid-row:2;grid-column:2;padding:24px 20px 28px 0}.iyof-events-page .eventlist-title{font-size:28px}.iyof-events-page .eventlist-description{font-size:14px}}

@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/homepage.css">
   <script src="assets/js/homepage.js" defer></script>
+  <script src="assets/js/iyof-carousel.js" defer></script>
 </head>
 <body class="homepage">
 <a class="skip-link" href="#main-content">Skip to content</a>
@@ -48,23 +49,7 @@
 <div class="hero-photo">
 <img src="assets/images/whatsapp-image-2026-07-31-at-20-26-17.jpeg" alt="IYOF students and programme supporters">
 <span>REAL PROGRAMMES · REAL EXPERIENCE</span>
-</div>
-<div class="company-card">
-<div>
-<div class="eyebrow" style="color:var(--yellow)">IYOF AT A GLANCE</div>
-<h2>More than an opportunity board.</h2>
-<p>The platform is one part of a wider organisation built around programmes, mentorship, industry access and long-term student development.</p>
-</div>
-<div class="colour-mark" aria-hidden="true">
-<i style="background:var(--yellow)">
-</i>
-<i style="background:var(--teal)">
-</i>
-<i style="background:var(--pink)">
-</i>
-<i style="background:#fff">
-</i>
-</div>
+<div class="hero-caption"><h2>Programmes. People. Possibilities.</h2><p>Explore industries, learn from professionals and stay connected through IYOF’s student community.</p></div>
 </div>
 </aside>
 </div>
@@ -93,45 +78,45 @@
 <div class="eyebrow">What we do</div>
 <h2>Our initiatives create the journey.</h2>
 </div>
-<p>Rather than presenting IYOF mainly as a job board, the homepage leads with the organisation itself: the programmes it delivers, the communities it builds and the pathways it opens for students.</p>
+<p>From leadership and hands-on learning to workplace exposure and an ongoing alumni community, IYOF helps students explore what comes next in more than one way.</p>
 </div>
-<div class="initiatives">
-<article class="initiative teal">
-<img src="assets/images/whatsapp-image-2025-08-15-at-05-55-53.jpeg" alt="IYOF student ambassadors">
-<div class="initiative-body">
-<span class="label">01 · LEADERSHIP</span>
-<h3>Student Ambassador</h3>
-<p>Students develop leadership, strengthen their networks and help shape opportunities for their peers.</p>
-<a href="pages/student-ambassador.html">Explore the initiative →</a>
+<div class="initiatives-carousel" data-iyof-carousel="initiatives">
+<div class="carousel-tools">
+<div class="carousel-selectors" aria-label="Choose an initiative">
+<button type="button" data-carousel-index="0">Student Ambassador</button>
+<button type="button" data-carousel-index="1">Events and Camps</button>
+<button type="button" data-carousel-index="2">Internship Opportunities</button>
+<button type="button" data-carousel-index="3">Alumni Network</button>
 </div>
+<div class="carousel-status"><p class="carousel-position" aria-live="polite" aria-atomic="true">Initiative <span data-carousel-current>1</span> of <span data-carousel-total>4</span></p><div class="carousel-arrows"><button class="carousel-arrow" type="button" data-carousel-direction="previous" aria-controls="initiative-track" aria-label="Previous initiative"><span aria-hidden="true">←</span></button><button class="carousel-arrow" type="button" data-carousel-direction="next" aria-controls="initiative-track" aria-label="Next initiative"><span aria-hidden="true">→</span></button></div></div>
+</div>
+<div class="carousel-window" data-carousel-window tabindex="0" aria-label="Use left and right arrow keys to change initiative">
+<div class="carousel-track" id="initiative-track" data-carousel-track>
+<article class="initiative-slide" data-carousel-slide data-tone="teal">
+<div class="initiative-photo"><img src="assets/images/whatsapp-image-2025-08-15-at-05-55-53.jpeg" alt="IYOF student ambassadors"><span>Leadership</span></div>
+<div class="initiative-body"><span class="label">01 · LEADERSHIP</span><h3>Student Ambassador</h3><p>Students develop leadership, strengthen their networks and help shape opportunities for their peers.</p><a href="pages/student-ambassador.html">Explore Student Ambassador →</a>
+<div class="initiative-ambassadors" data-iyof-carousel="ambassadors" data-carousel-mode="single" aria-label="Student Ambassadors">
+<div class="initiative-ambassador-tools"><p class="carousel-position" aria-live="polite" aria-atomic="true">Student Ambassador <span data-carousel-current>1</span> of <span data-carousel-total>3</span></p><div class="carousel-arrows"><button class="carousel-arrow" type="button" data-carousel-direction="previous" aria-controls="ambassador-track" aria-label="Previous Student Ambassador"><span aria-hidden="true">←</span></button><button class="carousel-arrow" type="button" data-carousel-direction="next" aria-controls="ambassador-track" aria-label="Next Student Ambassador"><span aria-hidden="true">→</span></button></div></div>
+<div class="initiative-ambassador-window" data-carousel-window tabindex="0" aria-label="Use left and right arrow keys to change Student Ambassador"><div class="initiative-ambassador-track" id="ambassador-track" data-carousel-track>
+<article class="ambassador-placeholder-card" data-carousel-slide><div class="placeholder-photo" role="img" aria-label="Abstract placeholder visual"></div><div class="placeholder-body"><h4>Student Ambassador 01</h4><p>Photo and profile coming soon.</p></div></article>
+<article class="ambassador-placeholder-card" data-carousel-slide hidden><div class="placeholder-photo" role="img" aria-label="Abstract placeholder visual"></div><div class="placeholder-body"><h4>Student Ambassador 02</h4><p>Photo and profile coming soon.</p></div></article>
+<article class="ambassador-placeholder-card" data-carousel-slide hidden><div class="placeholder-photo" role="img" aria-label="Abstract placeholder visual"></div><div class="placeholder-body"><h4>Student Ambassador 03</h4><p>Photo and profile coming soon.</p></div></article>
+</div></div>
+</div></div>
 </article>
-<article class="initiative yellow">
-<img src="assets/images/screenshot-2026-06-25-at-10-15-1-48-am.png" alt="Students attending an IYOF event">
-<div class="initiative-body">
-<span class="label">02 · EXPERIENCE</span>
-<h3>Events and Camps</h3>
-<p>Bootcamps, competitions and panels turn career curiosity into hands-on learning.</p>
-<a href="pages/events-and-camps.html">Explore the initiative →</a>
-</div>
+<article class="initiative-slide" data-carousel-slide data-tone="yellow" hidden>
+<div class="initiative-photo"><img src="assets/images/screenshot-2026-06-25-at-10-15-1-48-am.png" alt="Students attending an IYOF event"><span>Experience</span></div>
+<div class="initiative-body"><span class="label">02 · EXPERIENCE</span><h3>Events and Camps</h3><p>Bootcamps, competitions and panels turn career curiosity into hands-on learning.</p><a href="pages/events-and-camps.html">Explore Events and Camps →</a></div>
 </article>
-<article class="initiative purple">
-<img src="assets/images/unsplash-image-7okkfhxrxnw.jpg" alt="Students gaining workplace experience">
-<div class="initiative-body">
-<span class="label">03 · CAREER ACCESS</span>
-<h3>Internship Opportunities</h3>
-<p>Selected workplace opportunities help students gain practical exposure and professional confidence.</p>
-<a href="pages/internship-opportunities.html">Explore the initiative →</a>
-</div>
+<article class="initiative-slide" data-carousel-slide data-tone="purple" hidden>
+<div class="initiative-photo"><img src="assets/images/unsplash-image-7okkfhxrxnw.jpg" alt="Students gaining workplace experience"><span>Career access</span></div>
+<div class="initiative-body"><span class="label">03 · CAREER ACCESS</span><h3>Internship Opportunities</h3><p>Selected workplace opportunities help students gain practical exposure and professional confidence.</p><a href="pages/internship-opportunities.html">Explore Internship Opportunities →</a></div>
 </article>
-<article class="initiative pink">
-<img src="assets/images/425535fb-b0dc-4336-8635-cc5c9cdf5de7.jpg" alt="IYOF alumni and students">
-<div class="initiative-body">
-<span class="label">04 · CONTINUITY</span>
-<h3>Alumni Network</h3>
-<p>Mentorship, community events and future opportunities keep students connected after each programme.</p>
-<a href="pages/alumni-network.html">Explore the initiative →</a>
-</div>
+<article class="initiative-slide" data-carousel-slide data-tone="pink" hidden>
+<div class="initiative-photo"><img src="assets/images/425535fb-b0dc-4336-8635-cc5c9cdf5de7.jpg" alt="IYOF alumni and students"><span>Continuity</span></div>
+<div class="initiative-body"><span class="label">04 · CONTINUITY</span><h3>Alumni Network</h3><p>Mentorship, community events and future opportunities keep students connected after each programme.</p><a href="pages/alumni-network.html">Explore Alumni Network →</a></div>
 </article>
+</div>
 </div>
 </section>
 <section class="action" id="impact">
@@ -141,7 +126,7 @@
 <div class="eyebrow">IYOF in action</div>
 <h2>What students actually do.</h2>
 </div>
-<p>For shareholders and partners, programme stories provide visible evidence of delivery: students build, analyse, present, collaborate and meet people working in the fields they are exploring.</p>
+<p>Students build, analyse, present, collaborate and meet people working in the fields they are exploring.</p>
 </div>
 <div class="action-grid">
 <article class="story">
@@ -192,36 +177,36 @@
 <div class="marquee-track">
 <div class="logo-sequence">
 <div class="logo-card">
-<img src="assets/images/partner-logos/polyu.png" alt="The Hong Kong Polytechnic University">
+<img src="assets/images/partner-logos/transparent/polyu.png" alt="The Hong Kong Polytechnic University">
 </div>
 <div class="logo-card">
-<img src="assets/images/partner-logos/polyu-academy-interdisciplinary-research.png" alt="PolyU Academy for Interdisciplinary Research">
+<img src="assets/images/partner-logos/transparent/polyu-academy-interdisciplinary-research.png" alt="PolyU Academy for Interdisciplinary Research">
 </div>
 <div class="logo-card">
-<img src="assets/images/partner-logos/mental-health-research-centre.png" alt="Mental Health Research Centre">
+<img src="assets/images/partner-logos/transparent/mental-health-research-centre.png" alt="Mental Health Research Centre">
 </div>
 <div class="logo-card">
-<img src="assets/images/partner-logos/stanford-medicine-neurosurgery.png" alt="Stanford Medicine Neurosurgery">
+<img src="assets/images/partner-logos/transparent/stanford-medicine-neurosurgery.png" alt="Stanford Medicine Neurosurgery">
 </div>
 <div class="logo-card">
-<img src="assets/images/partner-logos/polyu-applied-mathematics.png" alt="PolyU Department of Applied Mathematics">
+<img src="assets/images/partner-logos/transparent/polyu-applied-mathematics.png" alt="PolyU Department of Applied Mathematics">
 </div>
 </div>
 <div class="logo-sequence" aria-hidden="true">
 <div class="logo-card">
-<img src="assets/images/partner-logos/polyu.png" alt="">
+<img src="assets/images/partner-logos/transparent/polyu.png" alt="">
 </div>
 <div class="logo-card">
-<img src="assets/images/partner-logos/polyu-academy-interdisciplinary-research.png" alt="">
+<img src="assets/images/partner-logos/transparent/polyu-academy-interdisciplinary-research.png" alt="">
 </div>
 <div class="logo-card">
-<img src="assets/images/partner-logos/mental-health-research-centre.png" alt="">
+<img src="assets/images/partner-logos/transparent/mental-health-research-centre.png" alt="">
 </div>
 <div class="logo-card">
-<img src="assets/images/partner-logos/stanford-medicine-neurosurgery.png" alt="">
+<img src="assets/images/partner-logos/transparent/stanford-medicine-neurosurgery.png" alt="">
 </div>
 <div class="logo-card">
-<img src="assets/images/partner-logos/polyu-applied-mathematics.png" alt="">
+<img src="assets/images/partner-logos/transparent/polyu-applied-mathematics.png" alt="">
 </div>
 </div>
 </div>
@@ -239,54 +224,54 @@
 <div class="marquee-track">
 <div class="logo-sequence">
 <div class="logo-card">
-<img src="assets/images/screenshot-2026-06-24-at-10-46-15-pm.png" alt="Diocesan Boys’ School">
+<img src="assets/images/school-logos/transparent/screenshot-2026-06-24-at-10-46-15-pm.png" alt="Diocesan Boys’ School">
 </div>
 <div class="logo-card">
-<img src="assets/images/screenshot-2026-06-24-at-10-32-49-pm.png" alt="Diocesan Girls’ School">
+<img src="assets/images/school-logos/transparent/screenshot-2026-06-24-at-10-32-49-pm.png" alt="Diocesan Girls’ School">
 </div>
 <div class="logo-card">
-<img src="assets/images/screenshot-2026-06-24-at-3-13-28-pm.png" alt="Victoria Shanghai Academy">
+<img src="assets/images/school-logos/transparent/screenshot-2026-06-24-at-3-13-28-pm.png" alt="Victoria Shanghai Academy">
 </div>
 <div class="logo-card">
-<img src="assets/images/screenshot-2026-06-24-at-3-14-53-pm.png" alt="Hong Kong International School">
+<img src="assets/images/school-logos/transparent/screenshot-2026-06-24-at-3-14-53-pm.png" alt="Hong Kong International School">
 </div>
 <div class="logo-card">
-<img src="assets/images/screenshot-2026-06-24-at-3-15-47-pm.png" alt="Chinese International School">
+<img src="assets/images/school-logos/transparent/screenshot-2026-06-24-at-3-15-47-pm.png" alt="Chinese International School">
 </div>
 <div class="logo-card">
-<img src="assets/images/screenshot-2026-06-24-at-3-16-39-pm.png" alt="English Schools Foundation">
+<img src="assets/images/school-logos/transparent/screenshot-2026-06-24-at-3-16-39-pm.png" alt="English Schools Foundation">
 </div>
 <div class="logo-card">
-<img src="assets/images/screenshot-2026-06-24-at-10-34-00-pm.png" alt="St. Paul’s Co-educational College">
+<img src="assets/images/school-logos/transparent/screenshot-2026-06-24-at-10-34-00-pm.png" alt="St. Paul’s Co-educational College">
 </div>
 <div class="logo-card">
-<img src="assets/images/screenshot-2026-06-24-at-10-58-51-pm.png" alt="German Swiss International School Hong Kong">
+<img src="assets/images/school-logos/transparent/screenshot-2026-06-24-at-10-58-51-pm.png" alt="German Swiss International School Hong Kong">
 </div>
 </div>
 <div class="logo-sequence" aria-hidden="true">
 <div class="logo-card">
-<img src="assets/images/screenshot-2026-06-24-at-10-46-15-pm.png" alt="">
+<img src="assets/images/school-logos/transparent/screenshot-2026-06-24-at-10-46-15-pm.png" alt="">
 </div>
 <div class="logo-card">
-<img src="assets/images/screenshot-2026-06-24-at-10-32-49-pm.png" alt="">
+<img src="assets/images/school-logos/transparent/screenshot-2026-06-24-at-10-32-49-pm.png" alt="">
 </div>
 <div class="logo-card">
-<img src="assets/images/screenshot-2026-06-24-at-3-13-28-pm.png" alt="">
+<img src="assets/images/school-logos/transparent/screenshot-2026-06-24-at-3-13-28-pm.png" alt="">
 </div>
 <div class="logo-card">
-<img src="assets/images/screenshot-2026-06-24-at-3-14-53-pm.png" alt="">
+<img src="assets/images/school-logos/transparent/screenshot-2026-06-24-at-3-14-53-pm.png" alt="">
 </div>
 <div class="logo-card">
-<img src="assets/images/screenshot-2026-06-24-at-3-15-47-pm.png" alt="">
+<img src="assets/images/school-logos/transparent/screenshot-2026-06-24-at-3-15-47-pm.png" alt="">
 </div>
 <div class="logo-card">
-<img src="assets/images/screenshot-2026-06-24-at-3-16-39-pm.png" alt="">
+<img src="assets/images/school-logos/transparent/screenshot-2026-06-24-at-3-16-39-pm.png" alt="">
 </div>
 <div class="logo-card">
-<img src="assets/images/screenshot-2026-06-24-at-10-34-00-pm.png" alt="">
+<img src="assets/images/school-logos/transparent/screenshot-2026-06-24-at-10-34-00-pm.png" alt="">
 </div>
 <div class="logo-card">
-<img src="assets/images/screenshot-2026-06-24-at-10-58-51-pm.png" alt="">
+<img src="assets/images/school-logos/transparent/screenshot-2026-06-24-at-10-58-51-pm.png" alt="">
 </div>
 </div>
 </div>
@@ -302,13 +287,24 @@
 </div>
 <div>
 <p>IYOF’s advisors bring senior leadership across business, education, technology, public health and public service—helping the organisation make stronger decisions and build programmes with lasting value.</p>
-<a class="advisor-link" href="pages/about-us.html">Meet the full board →</a>
 </div>
 </div>
-<div class="advisor-grid">
-<article class="advisor-card">
+<div class="advisor-carousel" data-advisor-carousel>
+<div class="advisor-controls">
+<p class="advisor-position" aria-live="polite" aria-atomic="true">Advisor <span data-advisor-current>1</span> of <span data-advisor-total>5</span></p>
+<div class="advisor-arrows">
+<button class="advisor-arrow advisor-prev" type="button" data-advisor-direction="previous" aria-controls="advisor-track" aria-label="Previous advisor">
+<span aria-hidden="true">&#8592;</span>
+</button>
+<button class="advisor-arrow advisor-next" type="button" data-advisor-direction="next" aria-controls="advisor-track" aria-label="Next advisor">
+<span aria-hidden="true">&#8594;</span>
+</button>
+</div>
+</div>
+<div class="advisor-grid" id="advisor-track" data-carousel-track tabindex="0" aria-label="IYOF Board of Advisors">
+<article class="advisor-card is-active" data-carousel-slide aria-current="true">
 <div class="advisor-photo">
-<img src="assets/images/whatsapp-image-2026-06-23-at-10-59-55-pm.jpeg" alt="Yeung Kwok Mung, Ken">
+<img src="assets/images/advisors/transparent/whatsapp-image-2026-06-23-at-10-59-55-pm.png" alt="Yeung Kwok Mung, Ken">
 </div>
 <div class="advisor-body">
 <span class="advisor-kicker">Strategic leadership</span>
@@ -317,9 +313,9 @@
 <p class="advisor-impact">Strengthens IYOF’s direction with corporate leadership, investment and education-governance experience.</p>
 </div>
 </article>
-<article class="advisor-card">
+<article class="advisor-card" data-carousel-slide>
 <div class="advisor-photo">
-<img src="assets/images/whatsapp-image-2026-06-23-at-12-45-16-am.jpg" alt="Dr. Tony Chen">
+<img src="assets/images/advisors/transparent/whatsapp-image-2026-06-23-at-12-45-16-am.png" alt="Dr. Tony Chen">
 </div>
 <div class="advisor-body">
 <span class="advisor-kicker">Education innovation</span>
@@ -328,9 +324,9 @@
 <p class="advisor-impact">Advises IYOF on education innovation, research and technology-led programme development.</p>
 </div>
 </article>
-<article class="advisor-card">
+<article class="advisor-card" data-carousel-slide>
 <div class="advisor-photo">
-<img src="assets/images/whatsapp-image-2026-06-24-at-10-28-34-pm.jpeg" alt="Dr. Witman Hung, JP">
+<img src="assets/images/advisors/transparent/whatsapp-image-2026-06-24-at-10-28-34-pm.png" alt="Dr. Witman Hung, JP">
 </div>
 <div class="advisor-body">
 <span class="advisor-kicker">Technology &amp; networks</span>
@@ -339,9 +335,9 @@
 <p class="advisor-impact">Connects IYOF with innovation ecosystems, technology expertise and Greater Bay Area networks.</p>
 </div>
 </article>
-<article class="advisor-card">
+<article class="advisor-card" data-carousel-slide>
 <div class="advisor-photo">
-<img src="assets/images/whatsapp-image-2026-06-23-at-11-00-55-am.jpeg" alt="Gloria Tam">
+<img src="assets/images/advisors/transparent/whatsapp-image-2026-06-23-at-11-00-55-am.png" alt="Gloria Tam">
 </div>
 <div class="advisor-body">
 <span class="advisor-kicker">Governance &amp; wellbeing</span>
@@ -350,9 +346,9 @@
 <p class="advisor-impact">Strengthens programme governance through public-health, education and institutional-management experience.</p>
 </div>
 </article>
-<article class="advisor-card">
+<article class="advisor-card" data-carousel-slide>
 <div class="advisor-photo">
-<img src="assets/images/whatsapp-image-2026-06-24-at-10-31-14-pm.jpeg" alt="Mr. Lai Man-hin, SBS, FSDSM, FSMSM">
+<img src="assets/images/advisors/transparent/whatsapp-image-2026-06-24-at-10-31-14-pm.png" alt="Mr. Lai Man-hin, SBS, FSDSM, FSMSM">
 </div>
 <div class="advisor-body">
 <span class="advisor-kicker">Leadership &amp; resilience</span>
@@ -361,6 +357,7 @@
 <p class="advisor-impact">Contributes public-service leadership and operational-planning experience to IYOF’s resilience.</p>
 </div>
 </article>
+</div>
 </div>
 </section>
 <section class="section opportunities" id="opportunities">
@@ -415,7 +412,7 @@
 </article>
 </div>
 <div class="opportunity-footer">
-<p class="job-note">This remains a secondary preview. The homepage presents IYOF's mission and initiatives before individual postings.</p>
+<p class="job-note">Explore programmes, student leadership and workplace opportunities with IYOF.</p>
 <a class="opportunity-more" href="pages/upcoming.html">View all opportunities →</a>
 </div>
 </section>

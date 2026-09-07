@@ -82,10 +82,62 @@ class ProductionHomepageTests(unittest.TestCase):
 
         self.assertEqual(5, parser.advisor_cards)
 
+    def test_partner_and_school_logos_use_transparent_image_assets(self):
+        html = (ROOT / "index.html").read_text(encoding="utf-8")
+        network = html[html.index('<section class="partner-network"'):html.index('<section class="advisors"')]
+        sources = set(re.findall(r'<img src="([^"]+)"', network))
+
+        self.assertEqual(13, len(sources))
+        for source in sources:
+            self.assertIn("/transparent/", source)
+            self.assertTrue((ROOT / source).is_file(), source)
+
+    def test_partner_and_school_logos_have_no_outer_logo_cards(self):
+        html = (ROOT / "index.html").read_text(encoding="utf-8")
+        network = html[html.index('<section class="partner-network"'):html.index('<section class="advisors"')]
+        self.assertIn('partner-logos/transparent/', network)
+        self.assertIn('school-logos/transparent/', network)
+
+    def test_advisor_section_has_no_unavailable_full_board_link_and_shows_fuller_portraits(self):
+        html = (ROOT / "index.html").read_text(encoding="utf-8")
+        stylesheet = (ROOT / "assets" / "css" / "homepage.css").read_text(
+            encoding="utf-8"
+        )
+
+        self.assertNotIn("Meet the full board", html)
+        self.assertIn(
+            ".advisor-photo img{width:100%;height:100%;object-fit:contain;object-position:center",
+            stylesheet,
+        )
+
+    def test_advisors_use_an_accessible_cyclic_centre_rail(self):
+        html = (ROOT / "index.html").read_text(encoding="utf-8")
+        script = (ROOT / "assets" / "js" / "homepage.js").read_text(encoding="utf-8")
+        stylesheet = (ROOT / "assets" / "css" / "homepage.css").read_text(
+            encoding="utf-8"
+        )
+
+        self.assertIn('data-advisor-carousel', html)
+        self.assertIn('id="advisor-track"', html)
+        self.assertIn('aria-live="polite"', html)
+        self.assertRegex(
+            html,
+            r'<button[^>]+data-advisor-direction="previous"[^>]+aria-controls="advisor-track"',
+        )
+        self.assertRegex(
+            html,
+            r'<button[^>]+data-advisor-direction="next"[^>]+aria-controls="advisor-track"',
+        )
+        self.assertIn("initAdvisorCarousel", script)
+        self.assertIn("showAdvisor", script)
+        self.assertIn("% cards.length", script)
+        self.assertIn("is-previous", script)
+        self.assertIn("is-next", script)
+
     def test_homepage_marquee_skips_clone_loop_for_reduced_motion(self):
         script = (ROOT / "assets" / "js" / "homepage.js").read_text(encoding="utf-8")
         self.assertIn("prefers-reduced-motion: reduce", script)
-        self.assertIn("if (reduceMotion)", script)
+        self.assertIn("reducedMotionQuery.matches", script)
 
     def test_homepage_accessibility_colours_have_explicit_high_contrast_overrides(self):
         stylesheet = (ROOT / "assets" / "css" / "homepage.css").read_text(encoding="utf-8")
@@ -133,6 +185,53 @@ class ProductionHomepageTests(unittest.TestCase):
         )
         self.assertIn(".opportunity-footer", stylesheet)
         self.assertIn(".opportunity-more", stylesheet)
+
+    def test_homepage_carousels_keep_all_programmes_discoverable_and_placeholders_anonymous(self):
+        html = (ROOT / "index.html").read_text(encoding="utf-8")
+        shared_script = (ROOT / "assets" / "js" / "iyof-carousel.js").read_text(
+            encoding="utf-8"
+        )
+
+        outer_start = html.index('id="initiative-track"')
+        inner_start = html.index('data-iyof-carousel="ambassadors"')
+        events_start = html.index('data-tone="yellow"')
+        initiatives = html[outer_start:inner_start]
+        self.assertIn('data-iyof-carousel="initiatives"', html)
+        self.assertIn('id="initiative-track"', initiatives)
+        self.assertEqual(1, initiatives.count('data-carousel-slide'))
+        self.assertLess(inner_start, events_start)
+        for label, href in (
+            ("Student Ambassador", "pages/student-ambassador.html"),
+            ("Events and Camps", "pages/events-and-camps.html"),
+            ("Internship Opportunities", "pages/internship-opportunities.html"),
+            ("Alumni Network", "pages/alumni-network.html"),
+        ):
+            self.assertIn(f">{label}</button>", html)
+            self.assertIn(f'href="{href}"', html)
+
+        self.assertIn('data-carousel-mode="single"', html)
+        self.assertLess(html.index('data-iyof-carousel="ambassadors"'), html.index('data-tone="yellow"'))
+        self.assertEqual(3, html.count('class="ambassador-placeholder-card"'))
+        for number in ("01", "02", "03"):
+            self.assertIn(f"Student Ambassador {number}", html)
+        self.assertEqual(3, html.count("Photo and profile coming soon."))
+        self.assertNotIn("Community Connector", html)
+        self.assertNotIn("Event Co-host", html)
+        self.assertNotIn("Peer Mentor", html)
+
+        self.assertIn("initScopedCarousel", shared_script)
+        self.assertIn("slide.inert", shared_script)
+        self.assertIn("previousButton.disabled", shared_script)
+        self.assertIn("'ArrowLeft'", shared_script)
+        self.assertIn("prefers-reduced-motion: reduce", shared_script)
+    def test_student_ambassador_detail_uses_the_same_three_anonymous_placeholders(self):
+        html = (ROOT / "pages" / "student-ambassador.html").read_text(encoding="utf-8")
+        self.assertIn('data-iyof-carousel="ambassadors"', html)
+        self.assertEqual(3, html.count('class="static-ambassador-card"'))
+        for number in ("01", "02", "03"):
+            self.assertIn(f"Student Ambassador {number}", html)
+        self.assertEqual(3, html.count("Photo and profile coming soon."))
+        self.assertIn('../assets/js/iyof-carousel.js', html)
 
 
 if __name__ == "__main__":
