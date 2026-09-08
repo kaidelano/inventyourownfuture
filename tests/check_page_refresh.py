@@ -22,6 +22,8 @@ try:
     assert d.execute("const i=[...document.querySelectorAll('.story-images img')];return i.length===4&&new Set(i.map(x=>x.currentSrc)).size===4"), (width,page)
     assert d.execute("return !document.querySelector('.editorial-main>.closing')"), (width,page)
     if width>1000:
+     assert d.execute("return document.querySelector('.page-hero').clientHeight<=660"), (width,page)
+     assert d.execute("const i=[...document.querySelectorAll('.story-images img')].map(x=>x.getBoundingClientRect());return Math.abs(i[0].top-i[1].top)<2&&Math.abs(i[2].top-i[3].top)<2&&i[2].top>i[0].bottom+15&&i.every(r=>Math.abs(r.width/r.height-4/3)<.03)"), (width,page)
      assert d.execute("return Math.abs(document.querySelector('.page-hero-copy').offsetHeight-document.querySelector('.about-hero-media').offsetHeight)<2")
      assert d.execute("const h=document.querySelector('.page-hero').getBoundingClientRect(),p=document.querySelector('.page-proof').getBoundingClientRect(),imgs=[...document.querySelectorAll('.about-hero-media img')];return p.top>=h.bottom-1&&imgs.every(i=>i.getBoundingClientRect().bottom<=h.bottom+1)"), (width,page)
      assert d.execute("const i=document.querySelector('.founder-card>img').getBoundingClientRect(),c=document.querySelector('.founder-copy').getBoundingClientRect();return c.left-i.right>=20"), (width,page)
