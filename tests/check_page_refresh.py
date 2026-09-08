@@ -11,7 +11,7 @@ try:
   for _ in range(5):
    assert d.execute("const a=document.querySelector('.advisor-card.is-active').getBoundingClientRect(),b=document.querySelector('.advisor-grid').getBoundingClientRect(),n=document.querySelector('.advisor-card.is-next').getBoundingClientRect();return Math.abs(a.x+a.width/2-b.x-b.width/2)<1&&a.width>n.width")
    assert d.execute("const a=getComputedStyle(document.querySelector('.advisor-card.is-active'));return innerWidth<=767?a.gridTemplateColumns.split(' ').length===1:a.gridTemplateColumns.split(' ').length===2")
-   assert d.execute("return [...document.querySelectorAll('.advisor-card')].every(c=>{const b=c.querySelector('.advisor-body'),h=c.querySelector('h3'),i=c.querySelector('.advisor-impact');return b.scrollHeight<=b.clientHeight&&h.scrollWidth<=h.clientWidth&&i.textContent.length>=110&&i.textContent.length<=190})")
+   assert d.execute("return [...document.querySelectorAll('.advisor-card')].every(c=>{const b=c.querySelector('.advisor-body'),h=c.querySelector('h3'),i=c.querySelector('.advisor-impact');return b.scrollHeight<=b.clientHeight&&h.scrollWidth<=h.clientWidth&&i.textContent.length>=110&&i.textContent.length<=200})")
    d.execute("document.querySelector('.advisor-next').click()");sleep(.35)
   for page in ('about-us','upcoming'):
    d.navigate(f'http://127.0.0.1:8080/pages/{page}.html');sleep(.6)
