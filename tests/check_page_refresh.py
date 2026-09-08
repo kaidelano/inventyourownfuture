@@ -19,7 +19,12 @@ try:
    assert d.execute("return document.querySelectorAll('.site-footer .footer-column a').length===8 && getComputedStyle(document.querySelector('.site-footer')).backgroundColor==='rgb(25, 21, 43)'"), (width,page)
    if page=='about-us':
     assert d.execute("return document.querySelector('.founder-card img').clientHeight>250"), (width,page)
-    if width>1000: assert d.execute("return Math.abs(document.querySelector('.page-hero-copy').offsetHeight-document.querySelector('.about-hero-media').offsetHeight)<2")
+    assert d.execute("const i=[...document.querySelectorAll('.story-images img')];return i.length===4&&new Set(i.map(x=>x.currentSrc)).size===4"), (width,page)
+    assert d.execute("return !document.querySelector('.editorial-main>.closing')"), (width,page)
+    if width>1000:
+     assert d.execute("return Math.abs(document.querySelector('.page-hero-copy').offsetHeight-document.querySelector('.about-hero-media').offsetHeight)<2")
+     assert d.execute("const h=document.querySelector('.page-hero').getBoundingClientRect(),p=document.querySelector('.page-proof').getBoundingClientRect(),imgs=[...document.querySelectorAll('.about-hero-media img')];return p.top>=h.bottom-1&&imgs.every(i=>i.getBoundingClientRect().bottom<=h.bottom+1)"), (width,page)
+     assert d.execute("const i=document.querySelector('.founder-card>img').getBoundingClientRect(),c=document.querySelector('.founder-copy').getBoundingClientRect();return c.left-i.right>=20"), (width,page)
    else: assert d.execute("return document.querySelectorAll('.event-card').length===5&&[...document.querySelectorAll('details')].every(e=>e.open)"), (width,page)
    d.screenshot(Path(f'/home/kai/General/work/IYOF/{page}-clean-{width}.png'))
   print(width,'PASS: advisor structure and clean secondary pages fit')
