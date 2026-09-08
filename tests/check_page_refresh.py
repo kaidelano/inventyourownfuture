@@ -19,11 +19,11 @@ try:
    assert d.execute("return document.querySelectorAll('.site-footer .footer-column a').length===8 && getComputedStyle(document.querySelector('.site-footer')).backgroundColor==='rgb(25, 21, 43)'"), (width,page)
    if page=='about-us':
     assert d.execute("return document.querySelector('.founder-card img').clientHeight>250"), (width,page)
-    assert d.execute("const i=[...document.querySelectorAll('.story-images img')];return i.length===4&&new Set(i.map(x=>x.currentSrc)).size===4"), (width,page)
+    assert d.execute("const i=[...document.querySelectorAll('.story-images img')],c=[...document.querySelectorAll('.story-images figcaption')];return i.length===4&&c.length===4&&new Set(i.map(x=>x.currentSrc)).size===4&&c.every(x=>x.textContent.trim().length>25)"), (width,page)
     assert d.execute("return !document.querySelector('.editorial-main>.closing')"), (width,page)
     if width>1000:
      assert d.execute("return document.querySelector('.page-hero').clientHeight<=570"), (width,page)
-     assert d.execute("const i=[...document.querySelectorAll('.story-images img')].map(x=>x.getBoundingClientRect());return Math.abs(i[0].top-i[1].top)<2&&Math.abs(i[2].top-i[3].top)<2&&i[2].top>i[0].bottom+15&&i.every(r=>Math.abs(r.width/r.height-4/5)<.03)"), (width,page)
+     assert d.execute("const i=[...document.querySelectorAll('.story-images img')].map(x=>x.getBoundingClientRect());return Math.abs(i[0].top-i[1].top)<2&&Math.abs(i[2].top-i[3].top)<2&&i[2].top>i[0].bottom+15&&i.every(r=>Math.abs(r.width/r.height-1)<.03)"), (width,page)
      assert d.execute("return Math.abs(document.querySelector('.page-hero-copy').offsetHeight-document.querySelector('.about-hero-media').offsetHeight)<2")
      assert d.execute("const h=document.querySelector('.page-hero').getBoundingClientRect(),p=document.querySelector('.page-proof').getBoundingClientRect(),imgs=[...document.querySelectorAll('.about-hero-media img')];return p.top>=h.bottom-1&&imgs.every(i=>i.getBoundingClientRect().bottom<=h.bottom+1)"), (width,page)
      assert d.execute("const i=document.querySelector('.founder-card>img').getBoundingClientRect(),c=document.querySelector('.founder-copy').getBoundingClientRect();return c.left-i.right>=20"), (width,page)
