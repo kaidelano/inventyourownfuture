@@ -407,10 +407,10 @@ button:focus-visible {
 .advisor-card.is-next{transform:translate(8%,0) scale(.88)}
 .advisor-photo{height:auto;min-height:0;background:var(--soft)}
 .advisor-photo img{height:100%;width:100%;object-fit:contain;object-position:center bottom;transform:none;background:transparent}
-.advisor-body{padding:32px;justify-content:center}
-.advisor-card h3{font-size:clamp(28px,3vw,44px);line-height:1.1;letter-spacing:-.035em;margin:12px 0 18px}
-.advisor-role{font-size:15px;line-height:1.65;margin-bottom:20px}
-.advisor-impact{font-size:15px;line-height:1.65;margin:0;padding-top:20px}
+.advisor-body{padding:26px 28px;justify-content:center}
+.advisor-card h3{font-size:clamp(26px,2.6vw,38px);line-height:1.08;letter-spacing:-.035em;margin:10px 0 12px}
+.advisor-role{font-size:14px;line-height:1.5;margin-bottom:14px}
+.advisor-impact{font-size:14px;line-height:1.55;margin:0;padding-top:14px}
 @media(max-width:650px){.advisor-card{width:90%;grid-template-columns:1fr;grid-template-rows:240px auto;min-height:0}.advisor-photo{height:240px}.advisor-body{padding:24px}.advisor-card h3{font-size:28px}}
 
 /* Editorial homepage composition refinement. */
