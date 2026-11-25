@@ -196,6 +196,128 @@ body.editorial-page{background:var(--paper);color:var(--ink)}
   color: var(--muted);
 }
 
+.initiative-feature[id] {
+  scroll-margin-top: 80px;
+}
+
+.initiative-feature-paper {
+  background: var(--paper);
+}
+
+.initiative-recaps {
+  display: grid;
+  gap: 32px;
+}
+
+.initiative-recap + .initiative-recap {
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+
+.initiative-recap {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(24px, 4vw, 64px);
+}
+
+.initiative-recap-media {
+  display: grid;
+  gap: 12px;
+}
+
+.initiative-recap-media > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+}
+
+.initiative-brand-mark {
+  display: grid;
+  place-items: center;
+  min-height: 180px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  background: var(--white);
+}
+
+.initiative-brand-mark img {
+  display: block;
+  width: min(100%, 230px);
+  height: auto;
+}
+
+.initiative-recap-copy {
+  max-width: 66ch;
+}
+
+.initiative-recap h3 {
+  margin: 0;
+  font-size: clamp(25px, 2.8vw, 42px);
+  line-height: 1.12;
+  letter-spacing: -.04em;
+}
+
+.initiative-recap p {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.initiative-recap .initiative-recap-date {
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.initiative-recap-details {
+  margin-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.initiative-recap-details summary {
+  width: fit-content;
+  min-height: 44px;
+  padding: 10px 0;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.initiative-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  margin-top: 8px;
+  color: var(--ink);
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.initiative-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 145px), 1fr));
+  gap: 12px;
+}
+
+.initiative-gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  background: var(--soft);
+  object-fit: cover;
+}
+
+.initiative-gallery img.is-document {
+  object-fit: contain;
+}
+
 .related-initiatives {
   padding-block: var(--initiative-spacing);
 }
@@ -302,6 +424,10 @@ body.editorial-page{background:var(--paper);color:var(--ink)}
   .initiative-story:first-child {
     grid-template-columns: minmax(0, 1fr);
     gap: 12px;
+  }
+
+  .initiative-recap {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .related-initiatives ul {
