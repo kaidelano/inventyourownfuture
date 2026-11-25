@@ -80,7 +80,7 @@ class ProductionHomepageTests(unittest.TestCase):
         ):
             self.assertIn(href, parser.hrefs)
 
-        self.assertEqual(5, parser.advisor_cards)
+        self.assertEqual(6, parser.advisor_cards)
 
     def test_partner_and_school_logos_use_transparent_image_assets(self):
         html = (ROOT / "index.html").read_text(encoding="utf-8")
