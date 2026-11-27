@@ -741,3 +741,184 @@ body.editorial-page{background:var(--paper);color:var(--ink)}
 #ambassadors-title {
   scroll-margin-top: 96px;
 }
+
+/* Career features, seminar recaps and internship stories */
+.article-page .article-heading {
+  max-width: 1000px;
+  padding-block: clamp(12px, 2vw, 28px) 0;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.article-heading h1 {
+  text-wrap: balance;
+}
+
+.article-meta,
+.article-byline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.article-meta {
+  flex-wrap: wrap;
+  gap: 6px 20px;
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.article-byline {
+  gap: 8px;
+}
+
+.article-byline img {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--ink);
+}
+
+.article-page .article-hero {
+  max-width: 900px;
+  margin-block: clamp(24px, 3vw, 40px) 0;
+}
+
+.article-hero img,
+.article-body figure img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  margin-inline: auto;
+  border-radius: 24px;
+}
+
+.article-hero img {
+  max-height: min(460px, 120vw);
+}
+
+.article-body {
+  width: calc(100% - 40px);
+  max-width: 70ch;
+  margin: clamp(32px, 5vw, 48px) auto 0;
+  font-size: 18px;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+
+.article-body > * {
+  margin: 0;
+}
+
+.article-body > * + * {
+  margin-top: 1em;
+}
+
+.article-body h2,
+.article-body h3 {
+  margin-top: 1.5em;
+  line-height: 1.2;
+  letter-spacing: -.03em;
+}
+
+.article-body h2 {
+  font-size: clamp(24px, 3vw, 34px);
+}
+
+.article-body h3 {
+  font-size: clamp(21px, 2.3vw, 26px);
+}
+
+.article-body > :first-child {
+  margin-top: 0;
+}
+
+.article-body :is(h2, h3) + * {
+  margin-top: .6em;
+}
+
+.article-body blockquote {
+  padding: 16px 20px;
+  border-inline-start: 4px solid var(--purple);
+  border-radius: 0 12px 12px 0;
+  background: var(--soft);
+}
+
+.article-body blockquote p {
+  margin: 0;
+}
+
+.article-body figure {
+  margin-block: 1.5em;
+}
+
+.article-body figcaption {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 14px;
+  text-align: center;
+}
+
+.article-body .article-ornament {
+  display: block;
+  width: 44px;
+  height: auto;
+  margin: 32px auto 0;
+}
+
+.article-related {
+  max-width: 1000px;
+  margin-block: var(--editorial-spacing);
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+}
+
+.article-related h2,
+.article-closing h2 {
+  margin: 0;
+  font-size: clamp(32px, 3.6vw, 54px);
+  line-height: 1.06;
+  letter-spacing: -.05em;
+}
+
+.article-related ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 24px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.article-related a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  height: 100%;
+  min-height: 64px;
+  padding: 14px 18px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--white);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.article-related a:hover {
+  background: var(--soft);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.article-page .article-closing {
+  width: min(1500px, 92vw, calc(100% - 40px));
+  margin-bottom: var(--editorial-spacing);
+}
+
+.article-closing a {
+  color: var(--ink);
+}
