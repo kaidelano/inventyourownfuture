@@ -41,7 +41,7 @@
 <p class="hero-copy">IYOF connects students with programmes, people and practical experiences that help them understand industries, build confidence and take meaningful next steps.</p>
 <div class="hero-actions">
 <a class="button dark" href="#initiatives">Explore our initiatives</a>
-<a class="button light" href="#opportunities">View upcoming opportunities</a>
+<a class="button light" href="#opportunities">Explore opportunities</a>
 </div>
 </div>
 </article>
@@ -371,61 +371,67 @@
 </div>
 </div>
 </section>
-<section class="section opportunities" id="opportunities">
-<div class="opportunity-heading">
-<div>
-<div class="eyebrow">Opportunity preview</div>
-<h2>Ways to get involved next.</h2>
-</div>
-<div class="filters">
-<button class="filter active" type="button" data-filter="all">All</button>
-<button class="filter" type="button" data-filter="programme">Programmes</button>
-<button class="filter" type="button" data-filter="internship">Internships</button>
-</div>
-</div>
-<div class="jobs">
-<article class="job" data-type="programme">
-<div class="job-top">
-<span class="job-type">PROGRAMME</span>
-</div>
-<h3>Fintech & Investment Banking</h3>
-<p class="meta">Hong Kong PolyU · Upper secondary students · Intensive bootcamp</p>
-<div class="tags">
-<span>Finance</span>
-<span>Portfolio</span>
-<span>Presentation</span>
-</div>
-<a class="job-link" href="pages/events-and-camps.html">View programme →</a>
-</article>
-<article class="job" data-type="programme">
-<div class="job-top">
-<span class="job-type">COMMUNITY</span>
-</div>
-<h3>Student Ambassador</h3>
-<p class="meta">Leadership · Student community · Network building</p>
-<div class="tags">
-<span>Leadership</span>
-<span>Community</span>
-</div>
-<a class="job-link" href="pages/student-ambassador.html">View programme →</a>
-</article>
-<article class="job" data-type="internship">
-<div class="job-top">
-<span class="job-type">INTERNSHIP</span>
-</div>
-<h3>Industry Experience</h3>
-<p class="meta">Selected partner opportunities · Eligibility varies</p>
-<div class="tags">
-<span>Workplace</span>
-<span>Mentorship</span>
-</div>
-<a class="job-link" href="pages/internship-opportunities.html">Explore internships →</a>
-</article>
-</div>
-<div class="opportunity-footer">
-<p class="job-note">Explore programmes, student leadership and workplace opportunities with IYOF.</p>
-<a class="opportunity-more" href="pages/upcoming.html">View all opportunities →</a>
-</div>
+<section class="section opportunities" id="opportunities" aria-labelledby="opportunities-title">
+  <div class="opportunity-heading">
+    <div>
+      <h2 id="opportunities-title">Recent programmes</h2>
+      <p>Our latest programmes. New dates will be announced here.</p>
+    </div>
+    <a class="button dark opportunity-more" href="pages/upcoming.html">View all opportunities <span aria-hidden="true">→</span></a>
+  </div>
+  <div class="programme-grid">
+    <article>
+      <a class="programme-card" href="pages/upcoming.html#fintech-investment-banking" aria-labelledby="preview-fintech-title">
+        <img src="assets/images/2026-summer-programs-iyof-x-polyu-2.png" width="1080" height="1350" loading="lazy" alt="Fintech and Investment Banking bootcamp poster">
+        <div class="programme-copy">
+          <h3 id="preview-fintech-title">Fintech &amp; Investment Banking</h3>
+          <p><time datetime="2026-07-27">27</time>–<time datetime="2026-07-31">31 July 2026</time><br>Hong Kong PolyU</p>
+        </div>
+        <span class="programme-arrow" aria-hidden="true">→</span>
+      </a>
+    </article>
+    <article>
+      <a class="programme-card" href="pages/upcoming.html#swift-app-development" aria-labelledby="preview-swift-title">
+        <img src="assets/images/2026-summer-programs-iyof-x-polyu.png" width="1080" height="1350" loading="lazy" alt="Swift App Development bootcamp poster">
+        <div class="programme-copy">
+          <h3 id="preview-swift-title">Swift App Development</h3>
+          <p><time datetime="2026-07-06">6</time>–<time datetime="2026-07-10">10 July 2026</time><br>Hong Kong PolyU</p>
+        </div>
+        <span class="programme-arrow" aria-hidden="true">→</span>
+      </a>
+    </article>
+    <article>
+      <a class="programme-card" href="pages/upcoming.html#ai-innovation-healthcare-neuroscience" aria-labelledby="preview-ai-title">
+        <img src="assets/images/iyof-ubsn-panel-2026.png" width="1080" height="1350" loading="lazy" alt="AI Innovation in Healthcare and Neuroscience panel poster">
+        <div class="programme-copy">
+          <h3 id="preview-ai-title">AI Innovation in Healthcare &amp; Neuroscience</h3>
+          <p><time datetime="2026-06-27">27 June 2026</time><br>Hong Kong PolyU</p>
+        </div>
+        <span class="programme-arrow" aria-hidden="true">→</span>
+      </a>
+    </article>
+  </div>
+  <nav class="opportunity-routes" aria-labelledby="opportunity-routes-title">
+    <h3 id="opportunity-routes-title">Get involved</h3>
+    <ul>
+      <li><a href="pages/student-ambassador.html#ambassadors-title" data-tone="teal">
+        <strong>Student Ambassador</strong>
+        <span>Meet the Executive Committee and learn how ambassadors help organise events.</span>
+      </a></li>
+      <li><a href="pages/internship-opportunities.html" data-tone="purple">
+        <strong>Internship Opportunities</strong>
+        <span>Get internship updates or ask about offering a student placement.</span>
+      </a></li>
+      <li><a href="pages/alumni-network.html" data-tone="pink">
+        <strong>Alumni Network</strong>
+        <span>Stay connected with fellow IYOF programme participants.</span>
+      </a></li>
+      <li><a href="pages/contact.html" data-tone="yellow">
+        <strong>Contact</strong>
+        <span>Ask the IYOF team about volunteering or partnering.</span>
+      </a></li>
+    </ul>
+  </nav>
 </section>
 
 <section class="closing">

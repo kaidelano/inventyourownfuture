@@ -728,3 +728,9 @@ body.editorial-page{background:var(--paper);color:var(--ink)}
     height: 100%;
   }
 }
+
+/* Keep linked programme and committee content clear of the sticky navigation. */
+.event-card[id],
+#ambassadors-title {
+  scroll-margin-top: 96px;
+}

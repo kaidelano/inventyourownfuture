@@ -165,26 +165,47 @@ class ProductionHomepageTests(unittest.TestCase):
         )
         self.assertIn(".story-link", stylesheet)
 
-    def test_upcoming_cta_routes_through_preview_before_full_opportunities_page(self):
+    def test_hero_cta_routes_through_preview_before_full_opportunities_page(self):
         text = (ROOT / "index.html").read_text(encoding="utf-8")
         self.assertIn(
-            '<a class="button light" href="#opportunities">View upcoming opportunities</a>',
+            '<a class="button light" href="#opportunities">Explore opportunities</a>',
             text,
         )
 
-        preview = text[
-            text.index('<section class="section opportunities" id="opportunities">') :
-        ]
-        self.assertIn(
-            '<a class="opportunity-more" href="pages/upcoming.html">View all opportunities →</a>',
-            preview,
+        preview = re.search(
+            r'<section\b[^>]*\bid="opportunities"[^>]*>(.*?)</section>', text, re.S
         )
+        self.assertIsNotNone(preview)
+        parser = HomepageParser()
+        parser.feed(preview.group(1))
+        self.assertIn("pages/upcoming.html", parser.hrefs)
 
-        stylesheet = (ROOT / "assets" / "css" / "homepage.css").read_text(
-            encoding="utf-8"
+    def test_opportunity_preview_links_to_matching_archive_event_cards(self):
+        home = (ROOT / "index.html").read_text(encoding="utf-8")
+        archive = (ROOT / "pages" / "upcoming.html").read_text(encoding="utf-8")
+        preview = re.search(
+            r'<section\b[^>]*\bid="opportunities"[^>]*>(.*?)</section>', home, re.S
         )
-        self.assertIn(".opportunity-footer", stylesheet)
-        self.assertIn(".opportunity-more", stylesheet)
+        self.assertIsNotNone(preview)
+        cards = re.findall(
+            r'<a\b[^>]*href="pages/upcoming\.html#([^"]+)"[^>]*>'
+            r'(?:(?!</a>).)*?<h3\b[^>]*>([^<]+)</h3>',
+            preview.group(1),
+            re.S,
+        )
+        self.assertEqual(3, len(cards))
+        self.assertEqual(3, len({anchor for anchor, _ in cards}))
+        archive_cards = dict(
+            re.findall(
+                r'<article class="event-card" id="([^"]+)">'
+                r'(?:(?!</article>).)*?<h3>([^<]+)</h3>',
+                archive,
+                re.S,
+            )
+        )
+        for anchor, title in cards:
+            with self.subTest(anchor=anchor):
+                self.assertEqual(title, archive_cards.get(anchor))
 
     def test_homepage_carousels_keep_all_programmes_discoverable_and_placeholders_anonymous(self):
         html = (ROOT / "index.html").read_text(encoding="utf-8")

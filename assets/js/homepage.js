@@ -100,20 +100,6 @@
     if (event.key === 'Escape') setNavigationOpen(false);
   });
 
-  document.querySelectorAll('.filter').forEach((button) => {
-    button.setAttribute('aria-pressed', String(button.classList.contains('active')));
-    button.addEventListener('click', () => {
-      document.querySelectorAll('.filter').forEach((item) => {
-        const active = item === button;
-        item.classList.toggle('active', active);
-        item.setAttribute('aria-pressed', String(active));
-      });
-      document.querySelectorAll('.job').forEach((job) => {
-        job.style.display = button.dataset.filter === 'all' || job.dataset.type === button.dataset.filter ? 'flex' : 'none';
-      });
-    });
-  });
-
   initAdvisorCarousel();
   initMarquees();
   reducedMotionQuery.addEventListener('change', initMarquees);
