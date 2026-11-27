@@ -8,7 +8,8 @@ a{color:inherit}
 .logo{width:54px}
 .brand{font-weight:800;font-size:17px}
 .navlinks{display:flex;gap:25px;margin-left:auto;align-items:center}
-.navlinks a{text-decoration:none;font-size:14px;font-weight:700}
+.navlinks a{text-decoration:none;font-size:14px;font-weight:700;white-space:nowrap}
+@media(min-width:1001px) and (max-width:1180px){.navlinks{gap:14px}.navlinks a{font-size:13px}.nav-cta{padding:11px 15px}}
 .nav-cta{background:var(--ink);color:#fff!important;padding:12px 18px;border-radius:999px}
 .hero{padding:20px 4vw 52px}
 .hero-grid{max-width:1720px;margin:auto;display:grid;grid-template-columns:1.08fr .92fr;gap:14px;height:clamp(520px,calc(100vh - 160px),590px);min-height:520px;max-height:590px}
