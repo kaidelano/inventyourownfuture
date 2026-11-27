@@ -85,7 +85,7 @@ class ProductionHomepageTests(unittest.TestCase):
     def test_partner_and_school_logos_use_transparent_image_assets(self):
         html = (ROOT / "index.html").read_text(encoding="utf-8")
         network = html[html.index('<section class="partner-network"'):html.index('<section class="advisors"')]
-        sources = set(re.findall(r'<img src="([^"]+)"', network))
+        sources = set(re.findall(r'<img\b[^>]*\bsrc="([^"]+)"', network))
 
         self.assertEqual(13, len(sources))
         for source in sources:
