@@ -214,7 +214,8 @@ class ProductionHomepageTests(unittest.TestCase):
         self.assertEqual(3, html.count('class="ambassador-placeholder-card"'))
         for role in ("President", "Internal Vice President", "External Vice President"):
             self.assertIn(f">{role}</", html)
-        self.assertEqual(3, html.count("Photo and profile coming soon."))
+        self.assertEqual(2, html.count("Photo and profile coming soon."))
+        self.assertIn("LI Kwan To, Kelvin", html)
         self.assertNotIn("Community Connector", html)
         self.assertNotIn("Event Co-host", html)
         self.assertNotIn("Peer Mentor", html)
@@ -225,17 +226,14 @@ class ProductionHomepageTests(unittest.TestCase):
         self.assertIn("'ArrowLeft'", shared_script)
         self.assertIn("prefers-reduced-motion: reduce", shared_script)
 
-    def test_student_ambassador_detail_uses_the_same_three_anonymous_placeholders(self):
+    def test_student_ambassador_detail_shows_the_executive_committee(self):
         html = (ROOT / "pages" / "student-ambassador.html").read_text(encoding="utf-8")
-        self.assertIn('data-iyof-carousel="ambassadors"', html)
-        self.assertEqual(3, html.count('class="ambassador-placeholder-card" data-carousel-slide'))
-        self.assertEqual(2, html.count('data-carousel-slide hidden'))
+        self.assertIn("Ambassador Executive Committee", html)
+        self.assertEqual(3, html.count('class="committee-card"'))
         for role in ("President", "Internal Vice President", "External Vice President"):
-            self.assertIn(f">{role}</", html)
-        self.assertEqual(3, html.count("Photo and profile coming soon."))
-        self.assertIn('../assets/css/homepage.css', html)
-        self.assertIn('../assets/js/iyof-carousel.js', html)
-
+            self.assertIn(f">{role}</p>", html)
+        self.assertIn("LI Kwan To, Kelvin", html)
+        self.assertIn('../assets/css/editorial-pages.css', html)
 
 if __name__ == "__main__":
     unittest.main()
