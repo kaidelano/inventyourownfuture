@@ -214,7 +214,7 @@ class ProductionHomepageTests(unittest.TestCase):
         self.assertEqual(3, html.count('class="ambassador-placeholder-card"'))
         for role in ("President", "Internal Vice President", "External Vice President"):
             self.assertIn(f">{role}</", html)
-        self.assertEqual(2, html.count("Photo and profile coming soon."))
+        self.assertEqual(1, html.count("Photo and profile coming soon."))
         self.assertIn("LI Kwan To, Kelvin", html)
         self.assertNotIn("Community Connector", html)
         self.assertNotIn("Event Co-host", html)
