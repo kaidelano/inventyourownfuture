@@ -196,6 +196,128 @@ body.editorial-page{background:var(--paper);color:var(--ink)}
   color: var(--muted);
 }
 
+.initiative-feature[id] {
+  scroll-margin-top: 80px;
+}
+
+.initiative-feature-paper {
+  background: var(--paper);
+}
+
+.initiative-recaps {
+  display: grid;
+  gap: 32px;
+}
+
+.initiative-recap + .initiative-recap {
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+
+.initiative-recap {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(24px, 4vw, 64px);
+}
+
+.initiative-recap-media {
+  display: grid;
+  gap: 12px;
+}
+
+.initiative-recap-media > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+}
+
+.initiative-brand-mark {
+  display: grid;
+  place-items: center;
+  min-height: 180px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  background: var(--white);
+}
+
+.initiative-brand-mark img {
+  display: block;
+  width: min(100%, 230px);
+  height: auto;
+}
+
+.initiative-recap-copy {
+  max-width: 66ch;
+}
+
+.initiative-recap h3 {
+  margin: 0;
+  font-size: clamp(25px, 2.8vw, 42px);
+  line-height: 1.12;
+  letter-spacing: -.04em;
+}
+
+.initiative-recap p {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.initiative-recap .initiative-recap-date {
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.initiative-recap-details {
+  margin-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.initiative-recap-details summary {
+  width: fit-content;
+  min-height: 44px;
+  padding: 10px 0;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.initiative-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  margin-top: 8px;
+  color: var(--ink);
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.initiative-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 145px), 1fr));
+  gap: 12px;
+}
+
+.initiative-gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  background: var(--soft);
+  object-fit: cover;
+}
+
+.initiative-gallery img.is-document {
+  object-fit: contain;
+}
+
 .related-initiatives {
   padding-block: var(--initiative-spacing);
 }
@@ -304,8 +426,305 @@ body.editorial-page{background:var(--paper);color:var(--ink)}
     gap: 12px;
   }
 
+  .initiative-recap {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
   .related-initiatives ul {
     grid-template-columns: minmax(0, 1fr);
     gap: 12px;
+  }
+}
+
+.initiative-recap-media > .initiative-section-photo {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center 42%;
+}
+
+.initiative-facts {
+  max-width: 62ch;
+  margin: 0;
+}
+
+.initiative-facts > div + div {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+
+.initiative-facts dt {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.initiative-facts dd {
+  margin: 6px 0 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.standard-page {
+  --editorial-spacing: 80px;
+}
+
+.standard-page .page-shell {
+  width: min(1500px, 92vw, calc(100% - 40px));
+}
+
+.editorial-heading h1 {
+  margin: 0;
+  font-size: clamp(40px, 5vw, 72px);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -.055em;
+}
+
+.editorial-heading p {
+  max-width: 44ch;
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: clamp(16px, 2vw, 20px);
+  line-height: 1.65;
+}
+
+.page-shell.editorial-heading {
+  padding-block: clamp(16px, 3vw, 42px) 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.editorial-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px 24px;
+  margin-block: 28px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.editorial-list-item {
+  height: 100%;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.editorial-list-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 24px;
+  background: var(--soft);
+  object-fit: cover;
+}
+
+.editorial-list-item .editorial-list-portrait {
+  object-position: center 33%;
+}
+
+.editorial-list-item .editorial-list-banner {
+  object-fit: contain;
+}
+
+.editorial-list-copy {
+  padding: 14px 2px 0;
+}
+
+.editorial-list-copy time {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.editorial-list-copy h2 {
+  margin: 6px 0 0;
+  font-size: clamp(22px, 2vw, 30px);
+  line-height: 1.18;
+  letter-spacing: -.035em;
+}
+
+.editorial-list-copy a {
+  color: var(--ink);
+  text-decoration-color: var(--purple);
+  text-decoration-thickness: 1px;
+  text-underline-offset: .16em;
+}
+
+.editorial-list-copy a:hover {
+  text-decoration-thickness: 2px;
+}
+
+.editorial-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-block: 28px var(--editorial-spacing);
+}
+
+.editorial-links .button {
+  align-items: center;
+  gap: 8px;
+  color: var(--ink);
+}
+
+.editorial-links .button:hover {
+  background: var(--soft);
+}
+
+.contact-panel {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: 24px;
+  margin-bottom: var(--editorial-spacing);
+  padding: clamp(24px, 5vw, 72px);
+  border-radius: 24px;
+  background: var(--soft);
+}
+
+.contact-panel .button {
+  margin-top: 24px;
+}
+
+.contact-details {
+  padding: clamp(20px, 3vw, 40px);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  background: var(--white);
+  overflow-wrap: anywhere;
+}
+
+.contact-details h2 {
+  margin: 0;
+  font-size: clamp(23px, 2.4vw, 34px);
+  line-height: 1.15;
+  letter-spacing: -.035em;
+}
+
+.contact-details dl {
+  margin: 20px 0 0;
+}
+
+.contact-details dl > div {
+  padding: 12px 0;
+  border-top: 1px solid var(--border);
+}
+
+.contact-details dl > div:last-child {
+  padding-bottom: 0;
+}
+
+.contact-details dt {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.contact-details dd {
+  margin: 4px 0 0;
+  line-height: 1.6;
+}
+
+.contact-details dd a {
+  color: var(--ink);
+  text-underline-offset: .2em;
+}
+
+.contact-details address {
+  font-style: normal;
+}
+
+@media (max-width: 1000px) {
+  .standard-page {
+    --editorial-spacing: 48px;
+  }
+
+  .editorial-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .contact-panel {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .editorial-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Ambassador Executive Committee: three named roles shown together. */
+.committee-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.committee-card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--teal);
+  border-radius: 24px;
+  background: var(--white);
+}
+
+.committee-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center top;
+  background: color-mix(in srgb, var(--teal) 18%, var(--white));
+}
+
+.committee-photo-empty {
+  background:
+    radial-gradient(circle at 50% 40%, color-mix(in srgb, var(--teal) 45%, var(--white)) 0 18%, transparent 18.5%),
+    radial-gradient(ellipse at 50% 100%, color-mix(in srgb, var(--teal) 45%, var(--white)) 0 34%, transparent 34.5%),
+    color-mix(in srgb, var(--teal) 18%, var(--white));
+}
+
+.committee-body {
+  padding: 20px 22px 24px;
+}
+
+.committee-role {
+  margin: 0 0 6px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.committee-body h3 {
+  margin: 0;
+  font-size: clamp(20px, 2vw, 24px);
+  line-height: 1.15;
+  letter-spacing: -.03em;
+}
+
+@media (max-width: 760px) {
+  .committee-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .committee-card {
+    grid-template-columns: 112px minmax(0, 1fr);
+    grid-template-rows: none;
+    align-items: center;
+  }
+
+  .committee-photo {
+    height: 100%;
   }
 }
